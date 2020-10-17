@@ -19,7 +19,7 @@ interface Orphanage {
   opening_hours: string;
   open_on_weekends: string;
   images: Array<{
-    id: string;
+    id: number;
     path: string;
   }>;
 }
@@ -34,7 +34,7 @@ export default function Orphanage() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
-    api.get(`orphanage/${params.id}`).then(response => {
+    api.get(`orphanages/${params.id}`).then(response => {
       setOrphanage(response.data);
     });
   }, [params.id]);
